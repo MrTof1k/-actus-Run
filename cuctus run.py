@@ -61,7 +61,7 @@ class Running_cactus(pygame.sprite.Sprite):
                 frame_location = (self.rect.w * i, self.rect.h * j)
                 self.frames.append(sheet.subsurface(pygame.Rect(
                     frame_location, self.rect.size)))
-        print(self.rect.size)
+
 
     def get_y(self):
         return self.rect[1]
@@ -103,7 +103,7 @@ class Enemy(pygame.sprite.Sprite):
                 frame_location = (self.rect.w * i, self.rect.h * j)
                 self.frames.append(sheet.subsurface(pygame.Rect(
                     frame_location, self.rect.size)))
-        print(self.rect.size)
+
 
     def update(self):
         self.cur_frame = (self.cur_frame + 1) % len(self.frames)
