@@ -62,7 +62,6 @@ class Running_cactus(pygame.sprite.Sprite):
                 self.frames.append(sheet.subsurface(pygame.Rect(
                     frame_location, self.rect.size)))
 
-
     def get_y(self):
         return self.rect[1]
 
@@ -79,7 +78,7 @@ class Running_cactus(pygame.sprite.Sprite):
         self.image = self.frames[self.cur_frame]
         self.g += 0.0002
         if pygame.sprite.collide_mask(self, enemy):
-            print(1)
+            music(1)
             GAME_RUNNING = False
 
 
@@ -104,7 +103,6 @@ class Enemy(pygame.sprite.Sprite):
                 self.frames.append(sheet.subsurface(pygame.Rect(
                     frame_location, self.rect.size)))
 
-
     def update(self):
         self.cur_frame = (self.cur_frame + 1) % len(self.frames)
         self.image = self.frames[self.cur_frame]
@@ -114,6 +112,7 @@ class Enemy(pygame.sprite.Sprite):
 
     def reload(self):
         self.rect[0] = 1300
+        music(0)
 
 
 def load_image(name, colorkey=None):
@@ -123,6 +122,16 @@ def load_image(name, colorkey=None):
         sys.exit()
     image = pygame.image.load(fullname)
     return image
+
+
+def music(flag):
+    if flag == 0:
+        sound1.stop()
+        sound2.play(-1)
+
+    if flag == 1:
+        sound2.stop()
+        sound1.play()
 
 
 fon = pygame.image.load("data/fon.jpg")
@@ -139,6 +148,10 @@ if __name__ == '__main__':
     all_sprites = pygame.sprite.Group()
     pygame.display.set_icon(pygame.image.load("icon.png"))
 
+    # музыка
+    sound1 = pygame.mixer.Sound('data/fail.mp3')
+    sound2 = pygame.mixer.Sound('data/music_fon.mp3')
+
     # загружает рекорд предыдущих запусков из файла в папке
     record = open('record.txt', 'r')
     best_score = int(record.readline())
@@ -151,7 +164,7 @@ if __name__ == '__main__':
 
     running = True
     # start_window = Start()
-
+    music(0)
     jumping = False
     score = 0
     clock = pygame.time.Clock()
@@ -177,15 +190,15 @@ if __name__ == '__main__':
                     score = 0
             # старт. окно
             if start_window:
-                collor = (168, 107, 2)
+                collor = (168, 107, 20)
                 screen.fill((255, 0, 55))
 
                 screen.blit(fon, (0, 0))
-                font.render_to(screen, (240, 80), "Добро пожаловать в Сactus Run", collor)
-                font.render_to(screen, (460, 140), f'Рекорд: {str(best_score)}', collor)
-                font.render_to(screen, (200, 200), "Разработчики (которые пишут код за еду)", collor)
-                font.render_to(screen, (320, 260), "Лукин, Носов, Данилов", collor)
-                font.render_to(screen, (220, 500), "Для начала игры нажмите SPACE", collor)
+                font.render_to(screen, (220, 80), "Пишем код за еду company", collor)
+                font.render_to(screen, (240, 140), "Представляет Cuctus Run", collor)
+                font.render_to(screen, (220, 200), "Разработчики: Лукин, Носов", collor)
+                font.render_to(screen, (300, 260), f'Текущий Рекорд: {str(best_score)}', collor)
+                font.render_to(screen, (170, 320), "Для начала игры нажмите SPACE", collor)
 
                 pygame.display.flip()
                 if event.type == pygame.KEYDOWN:
@@ -195,12 +208,22 @@ if __name__ == '__main__':
         if start_window == False:
             # Отрисовка всех спрайтов
             all_sprites.draw(screen)
+            # Уровни сложности
+            if int(score) <= 50:
+                pygame.draw.rect(screen, (179, 149, 68), ((30, 50), (400, 60)), 0, 10)
+                font.render_to(screen, (40, 60), "Сложность: Халява", (0, 0, 0))
+            if int(score) > 50 and int(score) <= 150:
+                pygame.draw.rect(screen, (179, 149, 68), ((30, 50), (400, 60)), 0, 10)
+                font.render_to(screen, (40, 60), "Сложность: Норм", (0, 0, 0))
+            if int(score) > 150:
+                pygame.draw.rect(screen, (179, 149, 68), ((30, 50), (400, 60)), 0, 10)
+                font.render_to(screen, (40, 60), "Сложность: Хард", (0, 0, 0))
 
             # Отрисовка счёта и рекорда в белом окне поверх спрайтов
-            pygame.draw.rect(screen, (179, 149, 68), ((940, 110), (255, 100)), 50, 10)
-            font.render_to(screen, (1000, 170), f'Счёт: {str(round(score))}', (0, 0, 0))
+            pygame.draw.rect(screen, (179, 149, 68), ((940, 40), (240, 90)), 0, 10)
+            font.render_to(screen, (1000, 50), f'Счёт: {str(round(score))}', (0, 0, 0))
             if round(score) < best_score:
-                font.render_to(screen, (950, 120), f'Рекорд: {str(best_score)}', (0, 0, 0))
+                font.render_to(screen, (950, 90), f'Рекорд: {str(best_score)}', (0, 0, 0))
             else:
                 font.render_to(screen, (950, 120), f'Рекорд: {str(round(score))}', (0, 0, 0))
 
