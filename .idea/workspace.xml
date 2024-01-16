@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8319f0d8-c937-4562-9380-c859129b0c3e" name="Changes" comment="Музыка и слдожность" />
+    <list default="true" id="8319f0d8-c937-4562-9380-c859129b0c3e" name="Changes" comment="доработанная музыка" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705167024859</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="доработанная музыка">
+      <created>1705406390780</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705406390780</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,6 +235,7 @@
     <MESSAGE value="Добавил музыку и пофиксил мелочи добавил requi..." />
     <MESSAGE value="убрал print" />
     <MESSAGE value="Музыка и слдожность" />
-    <option name="LAST_COMMIT_MESSAGE" value="Музыка и слдожность" />
+    <MESSAGE value="доработанная музыка" />
+    <option name="LAST_COMMIT_MESSAGE" value="доработанная музыка" />
   </component>
 </project>
