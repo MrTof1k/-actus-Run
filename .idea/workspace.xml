@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8319f0d8-c937-4562-9380-c859129b0c3e" name="Changes" comment="Описание тз exe фикс ошибки">
+    <list default="true" id="8319f0d8-c937-4562-9380-c859129b0c3e" name="Changes" comment="отредактировал описание">
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -241,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705425676579</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="отредактировал описание">
+      <created>1705425992979</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705425992979</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,6 +282,7 @@
     <MESSAGE value="Музыка и слдожность" />
     <MESSAGE value="доработанная музыка" />
     <MESSAGE value="Описание тз exe фикс ошибки" />
-    <option name="LAST_COMMIT_MESSAGE" value="Описание тз exe фикс ошибки" />
+    <MESSAGE value="отредактировал описание" />
+    <option name="LAST_COMMIT_MESSAGE" value="отредактировал описание" />
   </component>
 </project>
